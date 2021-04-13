@@ -18,12 +18,6 @@ function setup() {
 	engine = Engine.create();
     world = engine.world;
 
-    var packageSprite_options ={
-        isStatic: true
-    }
-    var packageSprite_options ={
-        restitution: 2.3
-    }
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
@@ -39,16 +33,17 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:3, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution: 0.5, isStatic:true});
 	World.add(world, packageBody);
 	
-
 	//Create a Ground
 	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
-
 	Engine.run(engine);
+	var packageSprite_options ={
+        restitution: 0.5
+		};
   
 }
 
@@ -66,8 +61,6 @@ function draw() {
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
     // Look at the hints in the document and understand how to make the package body fall only on press of the Down arrow key.
-      packageSprite.x = packageBody.position.x;
-	  packageSprite.y = packageBody.position.y;
-	  packageIMG.addImage(packageSprite);
+	Matter.Body.setStatic(packageBody, false); 
   }
 }
