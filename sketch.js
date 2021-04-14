@@ -1,5 +1,6 @@
 var helicopterIMG, helicopterSprite, packageSprite,packageIMG;
-var packageBody,ground
+var packageBody, ground;
+var red1, red2 , red3;
 const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
@@ -29,6 +30,15 @@ function setup() {
 	groundSprite=createSprite(width/2, height-35, width,10);
 	groundSprite.shapeColor=color(255)
 
+    red1=createSprite(400,650,200,20);
+	red1.shapeColor = "red";
+    packageSprite.collide = (red1);
+	
+	red2=createSprite(310,600,20,100);
+	red2.shapeColor = "red";
+
+	red3=createSprite(490,600,20,100);
+	red3.shapeColor = "red";
 
 	engine = Engine.create();
 	world = engine.world;
@@ -44,7 +54,6 @@ function setup() {
 	var packageSprite_options ={
         restitution: 0.5
 		};
-  
 }
 
 
