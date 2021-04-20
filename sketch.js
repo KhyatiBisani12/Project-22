@@ -32,13 +32,15 @@ function setup() {
 
     red1=createSprite(400,650,200,20);
 	red1.shapeColor = "red";
-    packageSprite.collide = (red1);
+    red1body = new RedZone(350,630,200,20);
 	
 	red2=createSprite(310,600,20,100);
 	red2.shapeColor = "red";
+	red2body = new RedZone(310,600,20,100);
 
 	red3=createSprite(490,600,20,100);
 	red3.shapeColor = "red";
+	red3body = new RedZone(490,600,20,100);
 
 	engine = Engine.create();
 	world = engine.world;
