@@ -42,9 +42,6 @@ function setup() {
 	red3.shapeColor = "red";
 	red3body = new RedZone(490,600,20,100);
 
-	engine = Engine.create();
-	world = engine.world;
-
 	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution: 0.5, isStatic:true});
 	World.add(world, packageBody);
 	
